@@ -20,8 +20,32 @@
         }
       }
 
+      class Name extends React.Component {
+        constructor(props){
+          super(props)
+          this.state = {
+            food: this.props.day == 'Thursday' ? 'cheeseburger' : 'hamburger'
+          }
+        }
+        render() {
+          return (
+            <div>
+            <h1>Kevin eats a {this.state.food} on {this.props.day}, with a cup of {this.props.drink}.</h1>
+            </div>
+          );
+        }
+      }
+
+      Name.defaultProps = {
+        drink: 'tea'
+      }
+
       ReactDOM.render(
         <Greeting name="Kevin"/>, document.getElementById('app')
+      );
+
+      ReactDOM.render(
+        <Name day="Thursday"/>, document.getElementById('app')
       );
 
      </script>
